@@ -1,5 +1,5 @@
 name: Continuous Integration
-
+#completo
 # 1. Triggers (Disparadores): Cuándo se ejecuta el pipeline
 on:
   push:
