@@ -1,5 +1,4 @@
-def calcular_estadisticas_notas(notas):
-    """
+"""
     Calcula estadísticas básicas sobre una lista de calificaciones numéricas.
     
     TODO: Completa la lógica de esta función para que pasen las pruebas unitarias.
@@ -26,4 +25,32 @@ def calcular_estadisticas_notas(notas):
     3. Retornar el diccionario con las 6 claves calculadas.
     """
     # --- ESCRIBE TU CÓDIGO AQUÍ ---
-    pass
+    
+
+def calcular_estadisticas_notas(notas):
+         arreglo_estadisticas = {
+            "total": 0,
+            "promedio": 0.0,
+            "aprobados": 0,
+            "reprobados": 0,
+            "nota_maxima": 0.0,
+            "nota_minima": 0.0
+         }
+          
+         if not notas:
+            return arreglo_estadisticas 
+         for nota in notas:
+            arreglo_estadisticas["total"] += 1
+            arreglo_estadisticas["promedio"] += nota
+            if nota >= 3.0:
+                  arreglo_estadisticas["aprobados"] += 1
+            else:
+                  arreglo_estadisticas["reprobados"] += 1
+            if nota > arreglo_estadisticas["nota_maxima"]:
+                  arreglo_estadisticas["nota_maxima"] = nota
+            if arreglo_estadisticas["nota_minima"] == 0.0 or nota < arreglo_estadisticas["nota_minima"]:
+                  arreglo_estadisticas["nota_minima"] = nota  
+         arreglo_estadisticas["promedio"] = round(arreglo_estadisticas["promedio"] / arreglo_estadisticas["total"], 2)
+         return arreglo_estadisticas
+
+calcular_estadisticas_notas([2.5, 3.0, 4.5, 1.0, 5.0, 2.0])
